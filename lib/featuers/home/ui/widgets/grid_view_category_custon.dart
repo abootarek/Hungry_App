@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hungry/core/helper/six_box.dart';
 import 'package:hungry/core/theming/colors_app.dart';
 import 'package:hungry/core/theming/styles_app.dart';
 
@@ -31,32 +32,35 @@ class GridViewCategoryCustom extends StatelessWidget {
                 ),
               ],
             ),
-            child: Column(
-              children: [
-                Image.asset('assets/images/image 5.png'),
-                Text(
-                  'Cheeseburger',
-                  style: TextStyles.font16blackLightMedium,
-                ),
-                Text(
-                  'Wendy\'s Burger',
-                  style: TextStyles.font16blackLightMedium,
-                ),
-                Row(children: [
-                  Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(child: Image.asset('assets/images/image 5.png')),
                   Text(
-                    '4.5',
+                    'Cheeseburger',
                     style: TextStyles.font16blackLightMedium,
                   ),
-                  Icon(
-                    Icons.star,
-                    color: ColorsApp.darkGreen,
+                  Text(
+                    'Wendy\'s Burger',
+                    style: TextStyles.font16blackLightMedium,
                   ),
-                ])
-              ],
+                  verticalSpace(10),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      Text(
+                        '4.5',
+                        style: TextStyles.font16blackLightMedium,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         );
