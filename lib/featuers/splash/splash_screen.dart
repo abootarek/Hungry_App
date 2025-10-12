@@ -48,36 +48,26 @@ class SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsApp.darkGreen,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const SizedBox(height: 40),
-            Expanded(
-              child: ScaleTransition(
-                scale: _animation,
-                child: Center(
-                  child: Text(
-                    'Hungry?',
-                    style: TextStyles.font60white.copyWith(
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.5,
-                    ),
-                  ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const SizedBox(height: 40),
+          ScaleTransition(
+            scale: _animation,
+            child: Center(
+              child: Text(
+                'Hungry?',
+                style: TextStyles.font60white.copyWith(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.5,
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 20),
-              child: Image.asset(
-                'assets/images/image 1.png',
-                height: 180,
-                fit: BoxFit.contain,
-              ),
-            ),
-          ],
-        ),
+          ),
+          Image.asset(
+            'assets/images/image 1.png',
+          ),
+        ],
       ),
     );
   }
