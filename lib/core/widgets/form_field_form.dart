@@ -42,6 +42,7 @@ class AppTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       autovalidateMode: AutovalidateMode.onUserInteraction,
+      
 
       autofillHints: [
         AutofillHints.email,
@@ -49,6 +50,7 @@ class AppTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       controller: controller,
       decoration: InputDecoration(
+
         border: InputBorder.none,
         isDense: true,
         contentPadding: contentPadding ??
@@ -56,7 +58,7 @@ class AppTextFormField extends StatelessWidget {
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
-                color: ColorsApp.blueLight,
+                color: ColorsApp.gray,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(10.0),
@@ -64,7 +66,7 @@ class AppTextFormField extends StatelessWidget {
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
-                color: ColorsApp.blueLight,
+                color: ColorsApp.grayLight,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(10.0),

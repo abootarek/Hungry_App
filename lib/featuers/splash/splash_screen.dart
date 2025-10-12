@@ -1,20 +1,20 @@
 import 'dart:async';
-
+import 'dart:ui';
 import 'package:flutter/material.dart';
-
 import 'package:hungry/core/helper/extensions.dart';
 import 'package:hungry/core/routing/routing.dart';
 import 'package:hungry/core/theming/colors_app.dart';
+
 import 'package:hungry/core/theming/styles_app.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  SplashScreenState createState() => SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
+class SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -23,21 +23,18 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    // Animation controller
     _controller = AnimationController(
       duration: const Duration(seconds: 2),
       vsync: this,
     )..forward();
 
-    // Animation for scaling the logo
     _animation = CurvedAnimation(
       parent: _controller,
       curve: Curves.easeInOutCirc,
     );
 
-    // Navigate to next screen after splash
     Timer(const Duration(seconds: 4), () {
-      context.pushNamed(Routes.layoutScreen);
+      context.pushReplacementNamed(Routes.signInScreen);
     });
   }
 
@@ -54,12 +51,22 @@ class _SplashScreenState extends State<SplashScreen>
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
+          const SizedBox(height: 40),
+          ScaleTransition(
+            scale: _animation,
             child: Center(
-              child: Text('Hungry?', style: TextStyles.font60white),
+              child: Text(
+                'Hungry?',
+                style: TextStyles.font60white.copyWith(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.5,
+                ),
+              ),
             ),
           ),
-          Image.asset('assets/images/image 1.png')
+          Image.asset(
+            'assets/images/image 1.png',
+          ),
         ],
       ),
     );

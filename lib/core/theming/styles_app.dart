@@ -27,7 +27,7 @@ class TextStyles {
   );
   static TextStyle font20blackLightNormal = TextStyle(
     fontSize: 24.sp,
-    fontWeight: FontWeightHelper.normal,
+    fontWeight: FontWeightHelper.bold,
     color: ColorsApp.blackLight,
   );
   static TextStyle font16blackLightMedium = TextStyle(
@@ -45,10 +45,10 @@ class TextStyles {
     fontWeight: FontWeightHelper.normal,
     color: ColorsApp.blackLight,
   );
-  static TextStyle font15blue = TextStyle(
+  static TextStyle font15gray = TextStyle(
     fontSize: 15.sp,
     fontWeight: FontWeightHelper.normal,
-    color: ColorsApp.blueLight,
+    color: ColorsApp.gray,
   );
   static TextStyle font15green = TextStyle(
     fontSize: 15.sp,
@@ -63,6 +63,13 @@ class TextStyles {
   );
   static TextStyle font60darkGreen = TextStyle(
     fontSize: 40.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsApp.darkGreen,
+  );
+
+
+   static TextStyle font16darkGreen = TextStyle(
+    fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,
     color: ColorsApp.darkGreen,
   );
