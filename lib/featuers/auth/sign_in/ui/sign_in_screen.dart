@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hungry/core/helper/extensions.dart';
-import 'package:hungry/core/routing/routing.dart';
 import 'package:hungry/core/theming/colors_app.dart';
 import 'package:hungry/core/theming/styles_app.dart';
 import 'package:hungry/core/widgets/button_app.dart';
+import 'package:hungry/featuers/auth/sign_in/logic/cubit/login_cubit.dart';
 import 'package:hungry/featuers/auth/sign_in/ui/widgets/container_social_medium.dart';
 import 'package:hungry/featuers/auth/sign_in/ui/widgets/divider_row.dart';
 import 'package:hungry/featuers/auth/sign_in/ui/widgets/form_emial_and_password.dart';
+import 'package:hungry/featuers/auth/sign_in/ui/widgets/login_bloc_listner.dart';
 import 'package:hungry/featuers/auth/sign_in/ui/widgets/row_text_signin.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -37,17 +38,26 @@ class SignInScreen extends StatelessWidget {
                 buttonText: 'SignIn',
                 backgroundColor: ColorsApp.darkGreen,
                 onPressed: () {
-                  context.pushNamed(Routes.layoutScreen);
+                  validatedGoLoading(context);
                 },
                 textStyle: TextStyles.font18WihtBold,
               ),
               RowTextAndButtonSignIn(),
               DividerRow(),
               ContainerSpacialMedium(),
+              LoginBlocListener(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void validatedGoLoading(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLogin(
+            context,
+          );
+    }
   }
 }
