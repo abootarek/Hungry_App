@@ -3,81 +3,79 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/core/theming/styles_app.dart';
 import 'package:hungry/core/widgets/form_field_form.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hungry/featuers/auth/sign_up/logic/cubit/signup_cubit.dart';
+
 class FormNameEmailAndPassword extends StatefulWidget {
-  const FormNameEmailAndPassword({
-    super.key,
-  });
+  const FormNameEmailAndPassword({super.key});
 
   @override
-  State<FormNameEmailAndPassword> createState() => _FormNameEmailAndPassword();
+  State<FormNameEmailAndPassword> createState() =>
+      _FormNameEmailAndPasswordState();
 }
 
-class _FormNameEmailAndPassword extends State<FormNameEmailAndPassword> {
+class _FormNameEmailAndPasswordState extends State<FormNameEmailAndPassword> {
   bool isPasswordVisible = true;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 16.sp,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        AppTextFormField(
-          hintText: 'User Name',
-          keyboardType: TextInputType.name,
-          inputTextStyle: TextStyles.font15blackLightNormal,
-          hintStyle: TextStyles.font15grayLightNormal,
-          suffixIcon: Icon(
-            Icons.person,
-            color: Colors.grey,
+    return Form(
+      key: context.read<SignupCubit>().formKey,
+      child: Column(
+        spacing: 18.sp,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppTextFormField(
+            controller: context.read<SignupCubit>().nameController,
+            hintText: 'User Name',
+            keyboardType: TextInputType.name,
+            inputTextStyle: TextStyles.font15blackLightNormal,
+            hintStyle: TextStyles.font15grayLightNormal,
+            suffixIcon: const Icon(Icons.person, color: Colors.grey),
+            validator: (value) =>
+                value == null || value.isEmpty ? 'Enter your name' : null,
           ),
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please enter your user name';
-            }
-            return null;
-          },
-        ),
-        AppTextFormField(
-          hintText: 'Email',
-          suffixIcon: Icon(
-            Icons.email,
-            color: Colors.grey,
+          AppTextFormField(
+            controller: context.read<SignupCubit>().emailController,
+            hintText: 'Email',
+            suffixIcon: const Icon(Icons.email, color: Colors.grey),
+            keyboardType: TextInputType.emailAddress,
+            inputTextStyle: TextStyles.font15blackLightNormal,
+            hintStyle: TextStyles.font15grayLightNormal,
+            validator: (value) =>
+                value == null || value.isEmpty ? 'Enter your email' : null,
           ),
-          keyboardType: TextInputType.emailAddress,
-          inputTextStyle: TextStyles.font15blackLightNormal,
-          hintStyle: TextStyles.font15grayLightNormal,
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please enter your email';
-            }
-            return null;
-          },
-        ),
-        AppTextFormField(
-          isObscureText: isPasswordVisible,
-          hintText: 'Password',
-          keyboardType: TextInputType.emailAddress,
-          inputTextStyle: TextStyles.font15blackLightNormal,
-          hintStyle: TextStyles.font15grayLightNormal,
-          suffixIcon: IconButton(
-            icon: Icon(
-              isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-              color: Colors.grey,
+          AppTextFormField(
+            controller: context.read<SignupCubit>().passwordController,
+            isObscureText: isPasswordVisible,
+            hintText: 'Password',
+            keyboardType: TextInputType.visiblePassword,
+            inputTextStyle: TextStyles.font15blackLightNormal,
+            hintStyle: TextStyles.font15grayLightNormal,
+            suffixIcon: IconButton(
+              icon: Icon(
+                isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                color: Colors.grey,
+              ),
+              onPressed: () =>
+                  setState(() => isPasswordVisible = !isPasswordVisible),
             ),
-            onPressed: () {
-              setState(() {
-                isPasswordVisible = !isPasswordVisible;
-              });
-            },
+            validator: (value) =>
+                value == null || value.isEmpty ? 'Enter your password' : null,
           ),
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please enter your password';
-            }
-            return null;
-          },
-        ),
-      ],
+          AppTextFormField(
+            controller: context.read<SignupCubit>().phoneController,
+            hintText: 'Phone',
+            suffixIcon: const Icon(Icons.phone, color: Colors.grey),
+            keyboardType: TextInputType.phone,
+            inputTextStyle: TextStyles.font15blackLightNormal,
+            hintStyle: TextStyles.font15grayLightNormal,
+            validator: (value) => value == null || value.isEmpty
+                ? 'Enter your phone number'
+                : null,
+          ),
+        ],
+      ),
     );
   }
 }

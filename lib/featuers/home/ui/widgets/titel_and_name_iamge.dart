@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hungry/core/cache/constans_cached.dart';
+import 'package:hungry/core/cache/sherd_prefrance.dart';
 import 'package:hungry/core/theming/styles_app.dart';
 
 class TitleAndNameAndImage extends StatelessWidget {
@@ -37,7 +39,7 @@ class TitleAndNameAndImage extends StatelessWidget {
           ],
         ),
         Text(
-          'Hello, Mohamed Tarek',
+          '${SharedPrefHelper.getData(key: SharedPrefKeys.name)}',
           style: TextStyles.font18gray,
         ),
       ],

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hungry/core/networking/di.dart';
 import 'package:hungry/core/theming/colors_app.dart';
+import 'package:hungry/featuers/auth/profile/profile_screen.dart';
+import 'package:hungry/featuers/card/card_screen.dart';
+import 'package:hungry/featuers/favorites/favorites_screen.dart';
+import 'package:hungry/featuers/home/logic/cubit/home_cubit.dart';
+import 'package:hungry/featuers/home/ui/home_screen.dart';
 import 'package:hungry/featuers/layout/logic/cubit/lay_out_cubit.dart';
 import 'package:hungry/featuers/layout/logic/cubit/lay_out_state.dart';
 
@@ -10,19 +16,32 @@ class LayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<HungryCubit>(context);
+
+    // هنا جهزنا الـ screens
+    final List<Widget> screens = [
+      BlocProvider(
+        create: (context) => HomeCubit(getIt())..getAllProducts(),
+        child: const HomeScreen(),
+      ),
+      CardScreen(),
+      FavoritesScreen(),
+      ProfileScreen(),
+    ];
+
     return BlocConsumer<HungryCubit, HungryState>(
       listener: (context, state) {},
       builder: (context, state) {
         return SafeArea(
           child: Scaffold(
-            body: cubit.screens[cubit.currentIndex],
+            body: screens[cubit.currentIndex],
             bottomNavigationBar: Container(
               height: 70,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(233, 2, 73, 27),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25)),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(25),
+                  topRight: Radius.circular(25),
+                ),
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(25),
@@ -43,7 +62,7 @@ class LayoutScreen extends StatelessWidget {
                     ),
                     BottomNavigationBarItem(
                       icon: Icon(Icons.shopping_cart),
-                      label: 'Cart',
+                      label: 'Shop',
                     ),
                     BottomNavigationBarItem(
                       icon: Icon(Icons.favorite),

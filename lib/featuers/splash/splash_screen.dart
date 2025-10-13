@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:hungry/core/cache/sherd_prefrance.dart';
 import 'package:hungry/core/helper/extensions.dart';
 import 'package:hungry/core/routing/routing.dart';
 import 'package:hungry/core/theming/colors_app.dart';
-
 import 'package:hungry/core/theming/styles_app.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -33,8 +33,15 @@ class SplashScreenState extends State<SplashScreen>
       curve: Curves.easeInOutCirc,
     );
 
+    /// هنا بنشيك بعد 4 ثواني المستخدم رايح فين
     Timer(const Duration(seconds: 4), () {
-      context.pushReplacementNamed(Routes.signInScreen);
+      final bool isLoggedIn = SharedPrefHelper.isUserLoggedIn();
+
+      if (isLoggedIn) {
+        context.pushReplacementNamed(Routes.layoutScreen); // لو مسجل دخول
+      } else {
+        context.pushReplacementNamed(Routes.signInScreen); // لو مش مسجل
+      }
     });
   }
 
