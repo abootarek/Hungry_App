@@ -14,7 +14,7 @@ class ItemGridViewCategory extends StatelessWidget {
     required this.homeData,
   });
 
-  @override  
+  @override
   Widget build(BuildContext context) {
     return Hero(
       tag: homeData.id ?? '',
@@ -27,6 +27,14 @@ class ItemGridViewCategory extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                ColorsApp.darkGreen,
+                ColorsApp.wihteColor,
+              ],
+            ),
             color: ColorsApp.wihteColor,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
@@ -47,9 +55,8 @@ class ItemGridViewCategory extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
-                      homeData.image ?? '',
+                      homeData.image ?? 'Not Found Image',
                       width: double.infinity,
-                      fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) => const Icon(
                           Icons.broken_image,
                           size: 60,

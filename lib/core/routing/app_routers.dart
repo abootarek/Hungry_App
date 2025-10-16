@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hungry/core/networking/di.dart';
 import 'package:hungry/core/routing/routing.dart';
-import 'package:hungry/featuers/auth/details_home/ui/details_home_screen.dart';
+import 'package:hungry/featuers/details_home/ui/details_home_screen.dart';
 import 'package:hungry/featuers/auth/profile/logic/cubit/profile_cubit.dart';
 import 'package:hungry/featuers/auth/profile/ui/profile_screen.dart';
 import 'package:hungry/featuers/auth/sign_in/logic/cubit/login_cubit.dart';

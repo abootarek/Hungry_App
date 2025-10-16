@@ -21,20 +21,23 @@ class BlocBuilderProfile extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           profileLoading: () {
-            return Center(
-                child: SpinKitFadingCircle(
-              color: ColorsApp.wihteColor,
-              size: 50.0,
-            ));
-          },
-          profileError: (apiErrorModel) {
-            return Center(child: Text(apiErrorModel.message));
+            return SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Center(
+                  child: SpinKitFadingCircle(
+                color: ColorsApp.wihteColor,
+                size: 50.0,
+              )),
+            );
           },
           profileSuccess: (profileResponse) {
             final profileData = profileResponse.data ?? [];
             return ItemProfile(
               profileResponse: profileResponse,
             );
+          },
+          profileError: (apiErrorModel) {
+            return Center(child: Text(apiErrorModel.message));
           },
           orElse: () {
             return const SizedBox.shrink();

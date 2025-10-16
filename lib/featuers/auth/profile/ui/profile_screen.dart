@@ -13,7 +13,11 @@ class ProfileScreen extends StatelessWidget {
         backgroundColor: ColorsApp.darkGreen,
       ),
       body: SingleChildScrollView(
-        child: BlocBuilderProfile(),
+        child: Column(
+          children: [
+            BlocBuilderProfile(),
+          ],
+        ),
       ),
     );
   }
