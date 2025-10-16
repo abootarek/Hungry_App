@@ -6,6 +6,7 @@ import 'package:hungry/core/helper/six_box.dart';
 import 'package:hungry/core/theming/colors_app.dart';
 import 'package:hungry/core/theming/styles_app.dart';
 import 'package:hungry/core/widgets/button_app.dart';
+import 'package:hungry/featuers/details_home/ui/widgets/item_container_detials.dart';
 import 'package:hungry/featuers/home/data/model/home_response.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
@@ -27,36 +28,7 @@ class ProductDetailsScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
         child: Column(
           children: [
-            Hero(
-              
-              tag: homeData?.id ?? '',
-              child: Container(
-                height: 300,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border.all(color: ColorsApp.grayLight),
-                  borderRadius: BorderRadius.circular(15),
-                  color: ColorsApp.wihteColor,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 6,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: Image.network(homeData?.image ?? 'not found',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    alignment: Alignment.center,
-                    errorBuilder: (context, error, stackTrace) {
-                  return const Icon(
-                    Icons.error,
-                    color: Colors.red,
-                  );
-                }),
-              ),
-            ),
+            ItemContainerDetails(homeData: homeData),
             verticalSpace(20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
