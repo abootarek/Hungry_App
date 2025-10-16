@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hungry/core/networking/api_factory.dart';
 import 'package:hungry/core/networking/api_services.dart';
+import 'package:hungry/featuers/auth/profile/data/repo/profile_repo.dart';
 import 'package:hungry/featuers/auth/sign_in/data/repo/login_repo.dart';
 import 'package:hungry/featuers/auth/sign_up/data/repo/sign_up_repo.dart';
 import 'package:hungry/featuers/home/data/repo/home_repo.dart';
@@ -16,4 +17,6 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
   // Home
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
+  // profile
+  getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
 }

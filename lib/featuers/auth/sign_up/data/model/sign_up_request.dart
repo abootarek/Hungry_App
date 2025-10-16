@@ -9,13 +9,13 @@ class SignUpRequest {
   final String name;
   final String email;
   final String password;
-  final String? phone;
+  final String phone;
 
   SignUpRequest({
     required this.name,
     required this.email,
     required this.password,
-    this.phone,
+    required this.phone,
   });
   Map<String, dynamic> toJson() => _$SignUpRequestToJson(this);
 }

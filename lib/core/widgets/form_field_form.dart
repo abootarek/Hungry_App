@@ -4,8 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/core/theming/colors_app.dart';
 import 'package:hungry/core/theming/styles_app.dart';
 
-
-
 class AppTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
@@ -20,6 +18,7 @@ class AppTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final Function(String?) validator;
+  final bool? readOnly;
 
   const AppTextFormField({
     super.key,
@@ -36,13 +35,13 @@ class AppTextFormField extends StatelessWidget {
     this.keyboardType,
     this.controller,
     required this.validator,
+    this.readOnly,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      
 
       autofillHints: [
         AutofillHints.email,
@@ -50,7 +49,6 @@ class AppTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       controller: controller,
       decoration: InputDecoration(
-
         border: InputBorder.none,
         isDense: true,
         contentPadding: contentPadding ??
@@ -103,6 +101,7 @@ class AppTextFormField extends StatelessWidget {
       style: TextStyles.font16blackLightMedium,
 
       validator: (value) => validator(value),
+      readOnly: readOnly ?? false,
     );
   }
 }

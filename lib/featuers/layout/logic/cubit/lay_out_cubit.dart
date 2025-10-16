@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hungry/featuers/auth/profile/profile_screen.dart';
+import 'package:hungry/featuers/auth/profile/ui/profile_screen.dart';
 import 'package:hungry/featuers/card/card_screen.dart';
 import 'package:hungry/featuers/favorites/favorites_screen.dart';
 import 'package:hungry/featuers/home/ui/home_screen.dart';

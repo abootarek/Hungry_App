@@ -9,4 +9,5 @@ class ColorsApp {
   static const Color darkGreen = Color(0xFF08431d);
   static const Color black = Color(0xff000000);
   static const Color gray = Color(0xff6A6A6A);
+  static const Color red = Color(0xffFF0000);
 }

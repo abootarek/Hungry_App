@@ -24,11 +24,13 @@ class DataSignUp {
   final String? email;
   final String? token;
   final String? image;
+  final String? phone;
   DataSignUp({
     this.name,
     this.email,
     this.token,
     this.image,
+    this.phone,
   });
 
   factory DataSignUp.fromJson(Map<String, dynamic> json) =>

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hungry/core/networking/di.dart';
 import 'package:hungry/core/theming/colors_app.dart';
-import 'package:hungry/featuers/auth/profile/profile_screen.dart';
+import 'package:hungry/featuers/auth/profile/logic/cubit/profile_cubit.dart';
+import 'package:hungry/featuers/auth/profile/ui/profile_screen.dart';
 import 'package:hungry/featuers/card/card_screen.dart';
 import 'package:hungry/featuers/favorites/favorites_screen.dart';
 import 'package:hungry/featuers/home/logic/cubit/home_cubit.dart';
@@ -25,7 +26,10 @@ class LayoutScreen extends StatelessWidget {
       ),
       CardScreen(),
       FavoritesScreen(),
-      ProfileScreen(),
+      BlocProvider(
+        create: (context) => ProfileCubit(getIt())..getProfile(),
+        child: ProfileScreen(),
+      ),
     ];
 
     return BlocConsumer<HungryCubit, HungryState>(
