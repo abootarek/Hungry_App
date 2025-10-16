@@ -6,25 +6,28 @@ import 'package:hungry/featuers/home/data/repo/home_repo.dart';
 import 'package:hungry/featuers/home/logic/cubit/home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeRepo homeRepo;
+  final HomeRepo homeRepo;
   HomeCubit(this.homeRepo) : super(HomeState.initial());
 
-  // bool isFirstLoad = false;
   void getAllProducts() async {
     emit(HomeState.homeStateLoading());
-    final token = await SharedPrefHelper.getData(key: SharedPrefKeys.token);
+
+    final token =
+        await SharedPrefHelper.getSecuredString(key: SharedPrefKeys.token);
 
     final response = await homeRepo.getProducts(
       token: 'Bearer $token',
     );
 
-    response.when(
-      success: (response) => emit(HomeState.homeStateSuccess(response)),
-      failure: (error) => emit(HomeState.homeStateFailure(error)),
-    );
-  }
+    if (isClosed) return;
 
-  dispose() {
-    super.close();
+    response.when(
+      success: (response) {
+        if (!isClosed) emit(HomeState.homeStateSuccess(response));
+      },
+      failure: (error) {
+        if (!isClosed) emit(HomeState.homeStateFailure(error));
+      },
+    );
   }
 }

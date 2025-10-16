@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hungry/core/cache/constans_cached.dart';
 import 'package:hungry/core/cache/sherd_prefrance.dart';
+import 'package:hungry/core/helper/extensions.dart';
+import 'package:hungry/core/routing/routing.dart';
 import 'package:hungry/core/theming/styles_app.dart';
 
 class TitleAndNameAndImage extends StatelessWidget {
@@ -20,20 +22,27 @@ class TitleAndNameAndImage extends StatelessWidget {
               style: TextStyles.font60darkGreen,
             ),
             Spacer(),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(25),
-              child: Image.asset(
-                'assets/images/profile.png',
-                width: 50,
-                height: 50,
-                fit: BoxFit.cover,
-                alignment: Alignment.center,
-                errorBuilder: (context, error, stackTrace) {
-                  return const Icon(
-                    Icons.error,
-                    color: Colors.red,
-                  );
-                },
+            GestureDetector(
+              onTap: () {
+                context.pushNamed(
+                  Routes.profileScreen,
+                );
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(25),
+                child: Image.network(
+                  '${SharedPrefHelper.getData(key: SharedPrefKeys.image)}',
+                  width: 50,
+                  height: 50,
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center,
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Icon(
+                      Icons.error,
+                      color: Colors.red,
+                    );
+                  },
+                ),
               ),
             ),
           ],

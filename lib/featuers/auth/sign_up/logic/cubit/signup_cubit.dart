@@ -2,6 +2,7 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+
 import 'package:hungry/featuers/auth/sign_up/data/model/sign_up_request.dart';
 import 'package:hungry/featuers/auth/sign_up/data/repo/sign_up_repo.dart';
 import 'package:hungry/featuers/auth/sign_up/logic/cubit/signup_state.dart';
@@ -31,19 +32,12 @@ class SignupCubit extends Cubit<SignupState> {
     );
 
     response.when(
-      success: (signUpData) {
+      success: (signUpData) async {
         emit(SignupState.success(signUpData));
       },
       failure: (error) {
         emit(SignupState.failure(error));
       },
     );
-  }
-
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    nameController.dispose();
-    phoneController.dispose();
   }
 }

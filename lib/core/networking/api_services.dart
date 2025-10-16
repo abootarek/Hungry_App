@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:hungry/core/networking/api_constans.dart';
+import 'package:hungry/featuers/auth/profile/data/model/profile_response.dart';
 import 'package:hungry/featuers/auth/sign_in/data/model/login_request.dart';
 import 'package:hungry/featuers/auth/sign_in/data/model/login_response.dart';
 import 'package:hungry/featuers/auth/sign_up/data/model/sign_up_request.dart';
@@ -27,5 +28,16 @@ abstract class ApisServices {
   @GET(ApiConstant.products)
   Future<HomeResponse> getProducts(
     @Header("Authorization") String token,
+  );
+  // Profile
+  @GET(ApiConstant.profile)
+  Future<ProfileResponse> getProfile(
+    @Header("Authorization") String token,
+  );
+  // Update Profile
+  @PUT(ApiConstant.updateProfile)
+  Future<ProfileResponse> updateProfile(
+    @Header("Authorization") String token,
+    @Body() ProfileResponse profileResponse,
   );
 }

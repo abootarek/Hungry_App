@@ -50,44 +50,39 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-  /// حفظ بيانات المستخدم بعد تسجيل الدخول
+  /// ✅ حفظ بيانات المستخدم بعد تسجيل الدخول
   Future<void> _saveUserData(LoginResponse loginResponse) async {
     try {
-      await SharedPrefHelper.saveData(
+      // ✅ نحفظ التوكن بشكل آمن باستخدام SecureStorage
+      await SharedPrefHelper.saveSecuredString(
         key: SharedPrefKeys.token,
-        value: loginResponse.data.token,
+        value: loginResponse.data.token ?? '',
       );
+
+      // 🧠 باقي البيانات نحفظها في SharedPreferences عادي
       await SharedPrefHelper.saveData(
         key: SharedPrefKeys.name,
         value: loginResponse.data.name,
       );
+
       await SharedPrefHelper.saveData(
         key: SharedPrefKeys.email,
         value: loginResponse.data.email,
       );
-      // await SharedPrefHelper.saveData(
-      //   key: SharedPrefKeys.phone,
-      //   value: loginResponse.data. ?? '',
-      // );
+
       await SharedPrefHelper.saveData(
         key: SharedPrefKeys.image,
         value: loginResponse.data.image ?? '',
       );
+
       await SharedPrefHelper.saveData(
         key: SharedPrefKeys.isLoggedInUser,
         value: true,
       );
 
-      log('✅ User data saved successfully.');
+      log('✅ User data saved successfully (with secure token).');
     } catch (e) {
       log('❌ Error saving user data: $e');
     }
-  }
-
-  @override
-  Future<void> close() {
-    emailController.dispose();
-    passwordController.dispose();
-    return super.close();
   }
 }

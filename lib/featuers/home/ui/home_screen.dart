@@ -5,13 +5,17 @@ import 'package:hungry/core/helper/six_box.dart';
 import 'package:hungry/core/widgets/show_generic_search_dailog.dart';
 import 'package:hungry/featuers/home/data/model/home_response.dart';
 import 'package:hungry/featuers/home/logic/cubit/home_cubit.dart';
-import 'package:hungry/featuers/home/ui/widgets/grid_view_category_custon.dart';
+import 'package:hungry/featuers/home/ui/widgets/boc_builder_grid_category.dart';
 import 'package:hungry/featuers/home/ui/widgets/item_grid_view_category.dart';
 import 'package:hungry/featuers/home/ui/widgets/search_text_form_field.dart';
 import 'package:hungry/featuers/home/ui/widgets/titel_and_name_iamge.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+  });
+  final bool _enabled = true;
 
   @override
   Widget build(BuildContext context) {
