@@ -9,6 +9,12 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: ColorsApp.wihteColor,
   );
+
+  static TextStyle font16WihtBold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsApp.wihteColor,
+  );
   static TextStyle font18WihtBold = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.bold,
@@ -50,6 +56,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.normal,
     color: ColorsApp.gray,
   );
+  static TextStyle font19gray = TextStyle(
+    fontSize: 19.sp,
+    fontWeight: FontWeightHelper.normal,
+    color: ColorsApp.gray,
+  );
   static TextStyle font15green = TextStyle(
     fontSize: 15.sp,
     fontWeight: FontWeightHelper.normal,
@@ -67,8 +78,7 @@ class TextStyles {
     color: ColorsApp.darkGreen,
   );
 
-
-   static TextStyle font16darkGreen = TextStyle(
+  static TextStyle font16darkGreen = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,
     color: ColorsApp.darkGreen,

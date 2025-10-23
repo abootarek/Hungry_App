@@ -98,7 +98,7 @@ class AppTextFormField extends StatelessWidget {
       obscureText: isObscureText ?? false,
 
       /// ToDo >> text عدل هنا حسب لون  الفورم
-      style: TextStyles.font16blackLightMedium,
+      style: inputTextStyle ?? TextStyles.font15grayLightNormal,
 
       validator: (value) => validator(value),
       readOnly: readOnly ?? false,

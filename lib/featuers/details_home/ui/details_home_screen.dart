@@ -1,8 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hungry/core/helper/extensions.dart';
 
 import 'package:hungry/core/helper/six_box.dart';
+import 'package:hungry/core/routing/routing.dart';
 import 'package:hungry/core/theming/colors_app.dart';
 import 'package:hungry/core/theming/styles_app.dart';
 import 'package:hungry/core/widgets/button_app.dart';
@@ -50,7 +52,7 @@ class ProductDetailsScreen extends StatelessWidget {
             verticalSpace(10),
             Row(
               children: [
-                Icon(Icons.star, color: ColorsApp.gren, size: 20.sp),
+                Icon(Icons.star, color: Colors.amber, size: 20.sp),
                 horizontalSpace(5),
                 Text(
                   '${homeData?.rating}',
@@ -72,9 +74,11 @@ class ProductDetailsScreen extends StatelessWidget {
             verticalSpace(30),
             AppTextButton(
               buttonHeight: 65,
-              buttonText: 'Buy Now',
+              buttonText: 'Add To Cart',
               backgroundColor: ColorsApp.darkGreen,
-              onPressed: () {},
+              onPressed: () {
+                context.pushNamed(Routes.productCartScreen);
+              },
               textStyle: TextStyles.font18WihtBold,
             ),
           ],

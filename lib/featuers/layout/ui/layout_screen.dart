@@ -4,7 +4,8 @@ import 'package:hungry/core/networking/di.dart';
 import 'package:hungry/core/theming/colors_app.dart';
 import 'package:hungry/featuers/auth/profile/logic/cubit/profile_cubit.dart';
 import 'package:hungry/featuers/auth/profile/ui/profile_screen.dart';
-import 'package:hungry/featuers/card/card_screen.dart';
+import 'package:hungry/featuers/card/logic/cubit/card_cubit.dart';
+import 'package:hungry/featuers/card/ui/card_screen.dart';
 import 'package:hungry/featuers/favorites/favorites_screen.dart';
 import 'package:hungry/featuers/home/logic/cubit/home_cubit.dart';
 import 'package:hungry/featuers/home/ui/home_screen.dart';
@@ -26,13 +27,16 @@ class LayoutScreen extends StatelessWidget {
         BlocProvider<ProfileCubit>(
           create: (context) => ProfileCubit(getIt())..getProfile(),
         ),
+        BlocProvider<CardCubit>(
+          create: (context) => CardCubit(getIt())..getAllCard(),
+        ),
       ],
       child: BlocConsumer<HungryCubit, HungryState>(
         listener: (context, state) {},
         builder: (context, state) {
           final screens = [
             const HomeScreen(),
-            const CardScreen(),
+            CardScreen(),
             const FavoritesScreen(),
             const ProfileScreen(),
           ];
@@ -43,11 +47,7 @@ class LayoutScreen extends StatelessWidget {
               bottomNavigationBar: Container(
                 height: 70,
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(233, 2, 73, 27),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25),
-                  ),
+                  color: ColorsApp.darkGreen,
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(25),
