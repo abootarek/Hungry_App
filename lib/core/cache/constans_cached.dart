@@ -4,6 +4,7 @@ class SharedPrefKeys {
   static String email = "email";
   static String phone = "phone";
   static String image = "image";
+  static String address = "address";
   static String isLoggedInUser = "isLoggedInUser";
 }
 
@@ -13,5 +14,6 @@ class SharedPrefValues {
   static String email = "";
   static String phone = "";
   static String image = "";
+  static String address = "";
   static bool isLoggedInUser = false;
 }

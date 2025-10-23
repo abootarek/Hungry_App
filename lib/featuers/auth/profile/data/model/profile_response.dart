@@ -5,14 +5,14 @@ part 'profile_response.g.dart';
 
 @JsonSerializable()
 class ProfileResponse {
-  final String message;
-  final int code;
+  final String? message;
+  final int? code;
   DataUser? data;
 
   ProfileResponse({
-    required this.message,
-    required this.code,
-    required this.data,
+    this.message,
+    this.code,
+    this.data,
   });
 
   factory ProfileResponse.fromJson(Map<String, dynamic> json) =>
@@ -25,6 +25,7 @@ class DataUser {
   final String? email;
   final String? image;
   final String? address;
+
   DataUser({
     this.name,
     this.email,

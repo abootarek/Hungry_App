@@ -15,13 +15,18 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ProfileState<T> {
+mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() profileLoading,
     required TResult Function(ProfileResponse profileResponse) profileSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) profileError,
+    required TResult Function() updateProfileLoading,
+    required TResult Function(ProfileResponse profileResponse)
+        updateProfileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
+    required TResult Function() imagePickedSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +35,10 @@ mixin _$ProfileState<T> {
     TResult? Function()? profileLoading,
     TResult? Function(ProfileResponse profileResponse)? profileSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult? Function()? updateProfileLoading,
+    TResult? Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult? Function()? imagePickedSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,46 +47,62 @@ mixin _$ProfileState<T> {
     TResult Function()? profileLoading,
     TResult Function(ProfileResponse profileResponse)? profileSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult Function()? updateProfileLoading,
+    TResult Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult Function()? imagePickedSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProfileLoading<T> value) profileLoading,
-    required TResult Function(ProfileSuccess<T> value) profileSuccess,
-    required TResult Function(ProfileError<T> value) profileError,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfileLoading value) profileLoading,
+    required TResult Function(ProfileSuccess value) profileSuccess,
+    required TResult Function(ProfileError value) profileError,
+    required TResult Function(UpdateProfileLoading value) updateProfileLoading,
+    required TResult Function(UpdateProfileSuccess value) updateProfileSuccess,
+    required TResult Function(UpdateProfileError value) updateProfileError,
+    required TResult Function(ImagePickedSuccess value) imagePickedSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProfileLoading<T> value)? profileLoading,
-    TResult? Function(ProfileSuccess<T> value)? profileSuccess,
-    TResult? Function(ProfileError<T> value)? profileError,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfileLoading value)? profileLoading,
+    TResult? Function(ProfileSuccess value)? profileSuccess,
+    TResult? Function(ProfileError value)? profileError,
+    TResult? Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult? Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult? Function(UpdateProfileError value)? updateProfileError,
+    TResult? Function(ImagePickedSuccess value)? imagePickedSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProfileLoading<T> value)? profileLoading,
-    TResult Function(ProfileSuccess<T> value)? profileSuccess,
-    TResult Function(ProfileError<T> value)? profileError,
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfileLoading value)? profileLoading,
+    TResult Function(ProfileSuccess value)? profileSuccess,
+    TResult Function(ProfileError value)? profileError,
+    TResult Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult Function(UpdateProfileError value)? updateProfileError,
+    TResult Function(ImagePickedSuccess value)? imagePickedSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProfileStateCopyWith<T, $Res> {
+abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
-          ProfileState<T> value, $Res Function(ProfileState<T>) then) =
-      _$ProfileStateCopyWithImpl<T, $Res, ProfileState<T>>;
+          ProfileState value, $Res Function(ProfileState) then) =
+      _$ProfileStateCopyWithImpl<$Res, ProfileState>;
 }
 
 /// @nodoc
-class _$ProfileStateCopyWithImpl<T, $Res, $Val extends ProfileState<T>>
-    implements $ProfileStateCopyWith<T, $Res> {
+class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
+    implements $ProfileStateCopyWith<$Res> {
   _$ProfileStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -90,18 +115,18 @@ class _$ProfileStateCopyWithImpl<T, $Res, $Val extends ProfileState<T>>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<T, $Res> {
+abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
-      __$$InitialImplCopyWithImpl<T, $Res>;
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$ProfileStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
-    implements _$$InitialImplCopyWith<T, $Res> {
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ProfileState
@@ -110,18 +135,18 @@ class __$$InitialImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$InitialImpl<T> implements _Initial<T> {
+class _$InitialImpl implements _Initial {
   const _$InitialImpl();
 
   @override
   String toString() {
-    return 'ProfileState<$T>.initial()';
+    return 'ProfileState.initial()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -134,6 +159,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() profileLoading,
     required TResult Function(ProfileResponse profileResponse) profileSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) profileError,
+    required TResult Function() updateProfileLoading,
+    required TResult Function(ProfileResponse profileResponse)
+        updateProfileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
+    required TResult Function() imagePickedSuccess,
   }) {
     return initial();
   }
@@ -145,6 +175,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? profileLoading,
     TResult? Function(ProfileResponse profileResponse)? profileSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult? Function()? updateProfileLoading,
+    TResult? Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult? Function()? imagePickedSuccess,
   }) {
     return initial?.call();
   }
@@ -156,6 +190,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? profileLoading,
     TResult Function(ProfileResponse profileResponse)? profileSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult Function()? updateProfileLoading,
+    TResult Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult Function()? imagePickedSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -167,10 +205,14 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProfileLoading<T> value) profileLoading,
-    required TResult Function(ProfileSuccess<T> value) profileSuccess,
-    required TResult Function(ProfileError<T> value) profileError,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfileLoading value) profileLoading,
+    required TResult Function(ProfileSuccess value) profileSuccess,
+    required TResult Function(ProfileError value) profileError,
+    required TResult Function(UpdateProfileLoading value) updateProfileLoading,
+    required TResult Function(UpdateProfileSuccess value) updateProfileSuccess,
+    required TResult Function(UpdateProfileError value) updateProfileError,
+    required TResult Function(ImagePickedSuccess value) imagePickedSuccess,
   }) {
     return initial(this);
   }
@@ -178,10 +220,14 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProfileLoading<T> value)? profileLoading,
-    TResult? Function(ProfileSuccess<T> value)? profileSuccess,
-    TResult? Function(ProfileError<T> value)? profileError,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfileLoading value)? profileLoading,
+    TResult? Function(ProfileSuccess value)? profileSuccess,
+    TResult? Function(ProfileError value)? profileError,
+    TResult? Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult? Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult? Function(UpdateProfileError value)? updateProfileError,
+    TResult? Function(ImagePickedSuccess value)? imagePickedSuccess,
   }) {
     return initial?.call(this);
   }
@@ -189,10 +235,14 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProfileLoading<T> value)? profileLoading,
-    TResult Function(ProfileSuccess<T> value)? profileSuccess,
-    TResult Function(ProfileError<T> value)? profileError,
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfileLoading value)? profileLoading,
+    TResult Function(ProfileSuccess value)? profileSuccess,
+    TResult Function(ProfileError value)? profileError,
+    TResult Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult Function(UpdateProfileError value)? updateProfileError,
+    TResult Function(ImagePickedSuccess value)? imagePickedSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -202,23 +252,23 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements ProfileState<T> {
-  const factory _Initial() = _$InitialImpl<T>;
+abstract class _Initial implements ProfileState {
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$ProfileLoadingImplCopyWith<T, $Res> {
-  factory _$$ProfileLoadingImplCopyWith(_$ProfileLoadingImpl<T> value,
-          $Res Function(_$ProfileLoadingImpl<T>) then) =
-      __$$ProfileLoadingImplCopyWithImpl<T, $Res>;
+abstract class _$$ProfileLoadingImplCopyWith<$Res> {
+  factory _$$ProfileLoadingImplCopyWith(_$ProfileLoadingImpl value,
+          $Res Function(_$ProfileLoadingImpl) then) =
+      __$$ProfileLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ProfileLoadingImplCopyWithImpl<T, $Res>
-    extends _$ProfileStateCopyWithImpl<T, $Res, _$ProfileLoadingImpl<T>>
-    implements _$$ProfileLoadingImplCopyWith<T, $Res> {
-  __$$ProfileLoadingImplCopyWithImpl(_$ProfileLoadingImpl<T> _value,
-      $Res Function(_$ProfileLoadingImpl<T>) _then)
+class __$$ProfileLoadingImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileLoadingImpl>
+    implements _$$ProfileLoadingImplCopyWith<$Res> {
+  __$$ProfileLoadingImplCopyWithImpl(
+      _$ProfileLoadingImpl _value, $Res Function(_$ProfileLoadingImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ProfileState
@@ -227,18 +277,18 @@ class __$$ProfileLoadingImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ProfileLoadingImpl<T> implements ProfileLoading<T> {
+class _$ProfileLoadingImpl implements ProfileLoading {
   const _$ProfileLoadingImpl();
 
   @override
   String toString() {
-    return 'ProfileState<$T>.profileLoading()';
+    return 'ProfileState.profileLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ProfileLoadingImpl<T>);
+        (other.runtimeType == runtimeType && other is _$ProfileLoadingImpl);
   }
 
   @override
@@ -251,6 +301,11 @@ class _$ProfileLoadingImpl<T> implements ProfileLoading<T> {
     required TResult Function() profileLoading,
     required TResult Function(ProfileResponse profileResponse) profileSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) profileError,
+    required TResult Function() updateProfileLoading,
+    required TResult Function(ProfileResponse profileResponse)
+        updateProfileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
+    required TResult Function() imagePickedSuccess,
   }) {
     return profileLoading();
   }
@@ -262,6 +317,10 @@ class _$ProfileLoadingImpl<T> implements ProfileLoading<T> {
     TResult? Function()? profileLoading,
     TResult? Function(ProfileResponse profileResponse)? profileSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult? Function()? updateProfileLoading,
+    TResult? Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult? Function()? imagePickedSuccess,
   }) {
     return profileLoading?.call();
   }
@@ -273,6 +332,10 @@ class _$ProfileLoadingImpl<T> implements ProfileLoading<T> {
     TResult Function()? profileLoading,
     TResult Function(ProfileResponse profileResponse)? profileSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult Function()? updateProfileLoading,
+    TResult Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult Function()? imagePickedSuccess,
     required TResult orElse(),
   }) {
     if (profileLoading != null) {
@@ -284,10 +347,14 @@ class _$ProfileLoadingImpl<T> implements ProfileLoading<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProfileLoading<T> value) profileLoading,
-    required TResult Function(ProfileSuccess<T> value) profileSuccess,
-    required TResult Function(ProfileError<T> value) profileError,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfileLoading value) profileLoading,
+    required TResult Function(ProfileSuccess value) profileSuccess,
+    required TResult Function(ProfileError value) profileError,
+    required TResult Function(UpdateProfileLoading value) updateProfileLoading,
+    required TResult Function(UpdateProfileSuccess value) updateProfileSuccess,
+    required TResult Function(UpdateProfileError value) updateProfileError,
+    required TResult Function(ImagePickedSuccess value) imagePickedSuccess,
   }) {
     return profileLoading(this);
   }
@@ -295,10 +362,14 @@ class _$ProfileLoadingImpl<T> implements ProfileLoading<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProfileLoading<T> value)? profileLoading,
-    TResult? Function(ProfileSuccess<T> value)? profileSuccess,
-    TResult? Function(ProfileError<T> value)? profileError,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfileLoading value)? profileLoading,
+    TResult? Function(ProfileSuccess value)? profileSuccess,
+    TResult? Function(ProfileError value)? profileError,
+    TResult? Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult? Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult? Function(UpdateProfileError value)? updateProfileError,
+    TResult? Function(ImagePickedSuccess value)? imagePickedSuccess,
   }) {
     return profileLoading?.call(this);
   }
@@ -306,10 +377,14 @@ class _$ProfileLoadingImpl<T> implements ProfileLoading<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProfileLoading<T> value)? profileLoading,
-    TResult Function(ProfileSuccess<T> value)? profileSuccess,
-    TResult Function(ProfileError<T> value)? profileError,
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfileLoading value)? profileLoading,
+    TResult Function(ProfileSuccess value)? profileSuccess,
+    TResult Function(ProfileError value)? profileError,
+    TResult Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult Function(UpdateProfileError value)? updateProfileError,
+    TResult Function(ImagePickedSuccess value)? imagePickedSuccess,
     required TResult orElse(),
   }) {
     if (profileLoading != null) {
@@ -319,25 +394,25 @@ class _$ProfileLoadingImpl<T> implements ProfileLoading<T> {
   }
 }
 
-abstract class ProfileLoading<T> implements ProfileState<T> {
-  const factory ProfileLoading() = _$ProfileLoadingImpl<T>;
+abstract class ProfileLoading implements ProfileState {
+  const factory ProfileLoading() = _$ProfileLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$ProfileSuccessImplCopyWith<T, $Res> {
-  factory _$$ProfileSuccessImplCopyWith(_$ProfileSuccessImpl<T> value,
-          $Res Function(_$ProfileSuccessImpl<T>) then) =
-      __$$ProfileSuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$ProfileSuccessImplCopyWith<$Res> {
+  factory _$$ProfileSuccessImplCopyWith(_$ProfileSuccessImpl value,
+          $Res Function(_$ProfileSuccessImpl) then) =
+      __$$ProfileSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ProfileResponse profileResponse});
 }
 
 /// @nodoc
-class __$$ProfileSuccessImplCopyWithImpl<T, $Res>
-    extends _$ProfileStateCopyWithImpl<T, $Res, _$ProfileSuccessImpl<T>>
-    implements _$$ProfileSuccessImplCopyWith<T, $Res> {
-  __$$ProfileSuccessImplCopyWithImpl(_$ProfileSuccessImpl<T> _value,
-      $Res Function(_$ProfileSuccessImpl<T>) _then)
+class __$$ProfileSuccessImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileSuccessImpl>
+    implements _$$ProfileSuccessImplCopyWith<$Res> {
+  __$$ProfileSuccessImplCopyWithImpl(
+      _$ProfileSuccessImpl _value, $Res Function(_$ProfileSuccessImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ProfileState
@@ -347,7 +422,7 @@ class __$$ProfileSuccessImplCopyWithImpl<T, $Res>
   $Res call({
     Object? profileResponse = null,
   }) {
-    return _then(_$ProfileSuccessImpl<T>(
+    return _then(_$ProfileSuccessImpl(
       null == profileResponse
           ? _value.profileResponse
           : profileResponse // ignore: cast_nullable_to_non_nullable
@@ -358,7 +433,7 @@ class __$$ProfileSuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ProfileSuccessImpl<T> implements ProfileSuccess<T> {
+class _$ProfileSuccessImpl implements ProfileSuccess {
   const _$ProfileSuccessImpl(this.profileResponse);
 
   @override
@@ -366,14 +441,14 @@ class _$ProfileSuccessImpl<T> implements ProfileSuccess<T> {
 
   @override
   String toString() {
-    return 'ProfileState<$T>.profileSuccess(profileResponse: $profileResponse)';
+    return 'ProfileState.profileSuccess(profileResponse: $profileResponse)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProfileSuccessImpl<T> &&
+            other is _$ProfileSuccessImpl &&
             (identical(other.profileResponse, profileResponse) ||
                 other.profileResponse == profileResponse));
   }
@@ -386,8 +461,8 @@ class _$ProfileSuccessImpl<T> implements ProfileSuccess<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProfileSuccessImplCopyWith<T, _$ProfileSuccessImpl<T>> get copyWith =>
-      __$$ProfileSuccessImplCopyWithImpl<T, _$ProfileSuccessImpl<T>>(
+  _$$ProfileSuccessImplCopyWith<_$ProfileSuccessImpl> get copyWith =>
+      __$$ProfileSuccessImplCopyWithImpl<_$ProfileSuccessImpl>(
           this, _$identity);
 
   @override
@@ -397,6 +472,11 @@ class _$ProfileSuccessImpl<T> implements ProfileSuccess<T> {
     required TResult Function() profileLoading,
     required TResult Function(ProfileResponse profileResponse) profileSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) profileError,
+    required TResult Function() updateProfileLoading,
+    required TResult Function(ProfileResponse profileResponse)
+        updateProfileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
+    required TResult Function() imagePickedSuccess,
   }) {
     return profileSuccess(profileResponse);
   }
@@ -408,6 +488,10 @@ class _$ProfileSuccessImpl<T> implements ProfileSuccess<T> {
     TResult? Function()? profileLoading,
     TResult? Function(ProfileResponse profileResponse)? profileSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult? Function()? updateProfileLoading,
+    TResult? Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult? Function()? imagePickedSuccess,
   }) {
     return profileSuccess?.call(profileResponse);
   }
@@ -419,6 +503,10 @@ class _$ProfileSuccessImpl<T> implements ProfileSuccess<T> {
     TResult Function()? profileLoading,
     TResult Function(ProfileResponse profileResponse)? profileSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult Function()? updateProfileLoading,
+    TResult Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult Function()? imagePickedSuccess,
     required TResult orElse(),
   }) {
     if (profileSuccess != null) {
@@ -430,10 +518,14 @@ class _$ProfileSuccessImpl<T> implements ProfileSuccess<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProfileLoading<T> value) profileLoading,
-    required TResult Function(ProfileSuccess<T> value) profileSuccess,
-    required TResult Function(ProfileError<T> value) profileError,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfileLoading value) profileLoading,
+    required TResult Function(ProfileSuccess value) profileSuccess,
+    required TResult Function(ProfileError value) profileError,
+    required TResult Function(UpdateProfileLoading value) updateProfileLoading,
+    required TResult Function(UpdateProfileSuccess value) updateProfileSuccess,
+    required TResult Function(UpdateProfileError value) updateProfileError,
+    required TResult Function(ImagePickedSuccess value) imagePickedSuccess,
   }) {
     return profileSuccess(this);
   }
@@ -441,10 +533,14 @@ class _$ProfileSuccessImpl<T> implements ProfileSuccess<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProfileLoading<T> value)? profileLoading,
-    TResult? Function(ProfileSuccess<T> value)? profileSuccess,
-    TResult? Function(ProfileError<T> value)? profileError,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfileLoading value)? profileLoading,
+    TResult? Function(ProfileSuccess value)? profileSuccess,
+    TResult? Function(ProfileError value)? profileError,
+    TResult? Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult? Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult? Function(UpdateProfileError value)? updateProfileError,
+    TResult? Function(ImagePickedSuccess value)? imagePickedSuccess,
   }) {
     return profileSuccess?.call(this);
   }
@@ -452,10 +548,14 @@ class _$ProfileSuccessImpl<T> implements ProfileSuccess<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProfileLoading<T> value)? profileLoading,
-    TResult Function(ProfileSuccess<T> value)? profileSuccess,
-    TResult Function(ProfileError<T> value)? profileError,
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfileLoading value)? profileLoading,
+    TResult Function(ProfileSuccess value)? profileSuccess,
+    TResult Function(ProfileError value)? profileError,
+    TResult Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult Function(UpdateProfileError value)? updateProfileError,
+    TResult Function(ImagePickedSuccess value)? imagePickedSuccess,
     required TResult orElse(),
   }) {
     if (profileSuccess != null) {
@@ -465,34 +565,34 @@ class _$ProfileSuccessImpl<T> implements ProfileSuccess<T> {
   }
 }
 
-abstract class ProfileSuccess<T> implements ProfileState<T> {
+abstract class ProfileSuccess implements ProfileState {
   const factory ProfileSuccess(final ProfileResponse profileResponse) =
-      _$ProfileSuccessImpl<T>;
+      _$ProfileSuccessImpl;
 
   ProfileResponse get profileResponse;
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ProfileSuccessImplCopyWith<T, _$ProfileSuccessImpl<T>> get copyWith =>
+  _$$ProfileSuccessImplCopyWith<_$ProfileSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ProfileErrorImplCopyWith<T, $Res> {
-  factory _$$ProfileErrorImplCopyWith(_$ProfileErrorImpl<T> value,
-          $Res Function(_$ProfileErrorImpl<T>) then) =
-      __$$ProfileErrorImplCopyWithImpl<T, $Res>;
+abstract class _$$ProfileErrorImplCopyWith<$Res> {
+  factory _$$ProfileErrorImplCopyWith(
+          _$ProfileErrorImpl value, $Res Function(_$ProfileErrorImpl) then) =
+      __$$ProfileErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
-class __$$ProfileErrorImplCopyWithImpl<T, $Res>
-    extends _$ProfileStateCopyWithImpl<T, $Res, _$ProfileErrorImpl<T>>
-    implements _$$ProfileErrorImplCopyWith<T, $Res> {
+class __$$ProfileErrorImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileErrorImpl>
+    implements _$$ProfileErrorImplCopyWith<$Res> {
   __$$ProfileErrorImplCopyWithImpl(
-      _$ProfileErrorImpl<T> _value, $Res Function(_$ProfileErrorImpl<T>) _then)
+      _$ProfileErrorImpl _value, $Res Function(_$ProfileErrorImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ProfileState
@@ -502,7 +602,7 @@ class __$$ProfileErrorImplCopyWithImpl<T, $Res>
   $Res call({
     Object? apiErrorModel = null,
   }) {
-    return _then(_$ProfileErrorImpl<T>(
+    return _then(_$ProfileErrorImpl(
       null == apiErrorModel
           ? _value.apiErrorModel
           : apiErrorModel // ignore: cast_nullable_to_non_nullable
@@ -513,7 +613,7 @@ class __$$ProfileErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ProfileErrorImpl<T> implements ProfileError<T> {
+class _$ProfileErrorImpl implements ProfileError {
   const _$ProfileErrorImpl(this.apiErrorModel);
 
   @override
@@ -521,14 +621,14 @@ class _$ProfileErrorImpl<T> implements ProfileError<T> {
 
   @override
   String toString() {
-    return 'ProfileState<$T>.profileError(apiErrorModel: $apiErrorModel)';
+    return 'ProfileState.profileError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProfileErrorImpl<T> &&
+            other is _$ProfileErrorImpl &&
             (identical(other.apiErrorModel, apiErrorModel) ||
                 other.apiErrorModel == apiErrorModel));
   }
@@ -541,9 +641,8 @@ class _$ProfileErrorImpl<T> implements ProfileError<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProfileErrorImplCopyWith<T, _$ProfileErrorImpl<T>> get copyWith =>
-      __$$ProfileErrorImplCopyWithImpl<T, _$ProfileErrorImpl<T>>(
-          this, _$identity);
+  _$$ProfileErrorImplCopyWith<_$ProfileErrorImpl> get copyWith =>
+      __$$ProfileErrorImplCopyWithImpl<_$ProfileErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -552,6 +651,11 @@ class _$ProfileErrorImpl<T> implements ProfileError<T> {
     required TResult Function() profileLoading,
     required TResult Function(ProfileResponse profileResponse) profileSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) profileError,
+    required TResult Function() updateProfileLoading,
+    required TResult Function(ProfileResponse profileResponse)
+        updateProfileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
+    required TResult Function() imagePickedSuccess,
   }) {
     return profileError(apiErrorModel);
   }
@@ -563,6 +667,10 @@ class _$ProfileErrorImpl<T> implements ProfileError<T> {
     TResult? Function()? profileLoading,
     TResult? Function(ProfileResponse profileResponse)? profileSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult? Function()? updateProfileLoading,
+    TResult? Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult? Function()? imagePickedSuccess,
   }) {
     return profileError?.call(apiErrorModel);
   }
@@ -574,6 +682,10 @@ class _$ProfileErrorImpl<T> implements ProfileError<T> {
     TResult Function()? profileLoading,
     TResult Function(ProfileResponse profileResponse)? profileSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult Function()? updateProfileLoading,
+    TResult Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult Function()? imagePickedSuccess,
     required TResult orElse(),
   }) {
     if (profileError != null) {
@@ -585,10 +697,14 @@ class _$ProfileErrorImpl<T> implements ProfileError<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProfileLoading<T> value) profileLoading,
-    required TResult Function(ProfileSuccess<T> value) profileSuccess,
-    required TResult Function(ProfileError<T> value) profileError,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfileLoading value) profileLoading,
+    required TResult Function(ProfileSuccess value) profileSuccess,
+    required TResult Function(ProfileError value) profileError,
+    required TResult Function(UpdateProfileLoading value) updateProfileLoading,
+    required TResult Function(UpdateProfileSuccess value) updateProfileSuccess,
+    required TResult Function(UpdateProfileError value) updateProfileError,
+    required TResult Function(ImagePickedSuccess value) imagePickedSuccess,
   }) {
     return profileError(this);
   }
@@ -596,10 +712,14 @@ class _$ProfileErrorImpl<T> implements ProfileError<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProfileLoading<T> value)? profileLoading,
-    TResult? Function(ProfileSuccess<T> value)? profileSuccess,
-    TResult? Function(ProfileError<T> value)? profileError,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfileLoading value)? profileLoading,
+    TResult? Function(ProfileSuccess value)? profileSuccess,
+    TResult? Function(ProfileError value)? profileError,
+    TResult? Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult? Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult? Function(UpdateProfileError value)? updateProfileError,
+    TResult? Function(ImagePickedSuccess value)? imagePickedSuccess,
   }) {
     return profileError?.call(this);
   }
@@ -607,10 +727,14 @@ class _$ProfileErrorImpl<T> implements ProfileError<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProfileLoading<T> value)? profileLoading,
-    TResult Function(ProfileSuccess<T> value)? profileSuccess,
-    TResult Function(ProfileError<T> value)? profileError,
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfileLoading value)? profileLoading,
+    TResult Function(ProfileSuccess value)? profileSuccess,
+    TResult Function(ProfileError value)? profileError,
+    TResult Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult Function(UpdateProfileError value)? updateProfileError,
+    TResult Function(ImagePickedSuccess value)? imagePickedSuccess,
     required TResult orElse(),
   }) {
     if (profileError != null) {
@@ -620,15 +744,661 @@ class _$ProfileErrorImpl<T> implements ProfileError<T> {
   }
 }
 
-abstract class ProfileError<T> implements ProfileState<T> {
+abstract class ProfileError implements ProfileState {
   const factory ProfileError(final ApiErrorModel apiErrorModel) =
-      _$ProfileErrorImpl<T>;
+      _$ProfileErrorImpl;
 
   ApiErrorModel get apiErrorModel;
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ProfileErrorImplCopyWith<T, _$ProfileErrorImpl<T>> get copyWith =>
+  _$$ProfileErrorImplCopyWith<_$ProfileErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateProfileLoadingImplCopyWith<$Res> {
+  factory _$$UpdateProfileLoadingImplCopyWith(_$UpdateProfileLoadingImpl value,
+          $Res Function(_$UpdateProfileLoadingImpl) then) =
+      __$$UpdateProfileLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateProfileLoadingImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$UpdateProfileLoadingImpl>
+    implements _$$UpdateProfileLoadingImplCopyWith<$Res> {
+  __$$UpdateProfileLoadingImplCopyWithImpl(_$UpdateProfileLoadingImpl _value,
+      $Res Function(_$UpdateProfileLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$UpdateProfileLoadingImpl implements UpdateProfileLoading {
+  const _$UpdateProfileLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ProfileState.updateProfileLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateProfileLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() profileLoading,
+    required TResult Function(ProfileResponse profileResponse) profileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
+    required TResult Function() updateProfileLoading,
+    required TResult Function(ProfileResponse profileResponse)
+        updateProfileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
+    required TResult Function() imagePickedSuccess,
+  }) {
+    return updateProfileLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? profileLoading,
+    TResult? Function(ProfileResponse profileResponse)? profileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult? Function()? updateProfileLoading,
+    TResult? Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult? Function()? imagePickedSuccess,
+  }) {
+    return updateProfileLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? profileLoading,
+    TResult Function(ProfileResponse profileResponse)? profileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult Function()? updateProfileLoading,
+    TResult Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult Function()? imagePickedSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateProfileLoading != null) {
+      return updateProfileLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfileLoading value) profileLoading,
+    required TResult Function(ProfileSuccess value) profileSuccess,
+    required TResult Function(ProfileError value) profileError,
+    required TResult Function(UpdateProfileLoading value) updateProfileLoading,
+    required TResult Function(UpdateProfileSuccess value) updateProfileSuccess,
+    required TResult Function(UpdateProfileError value) updateProfileError,
+    required TResult Function(ImagePickedSuccess value) imagePickedSuccess,
+  }) {
+    return updateProfileLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfileLoading value)? profileLoading,
+    TResult? Function(ProfileSuccess value)? profileSuccess,
+    TResult? Function(ProfileError value)? profileError,
+    TResult? Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult? Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult? Function(UpdateProfileError value)? updateProfileError,
+    TResult? Function(ImagePickedSuccess value)? imagePickedSuccess,
+  }) {
+    return updateProfileLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfileLoading value)? profileLoading,
+    TResult Function(ProfileSuccess value)? profileSuccess,
+    TResult Function(ProfileError value)? profileError,
+    TResult Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult Function(UpdateProfileError value)? updateProfileError,
+    TResult Function(ImagePickedSuccess value)? imagePickedSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateProfileLoading != null) {
+      return updateProfileLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfileLoading implements ProfileState {
+  const factory UpdateProfileLoading() = _$UpdateProfileLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateProfileSuccessImplCopyWith<$Res> {
+  factory _$$UpdateProfileSuccessImplCopyWith(_$UpdateProfileSuccessImpl value,
+          $Res Function(_$UpdateProfileSuccessImpl) then) =
+      __$$UpdateProfileSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProfileResponse profileResponse});
+}
+
+/// @nodoc
+class __$$UpdateProfileSuccessImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$UpdateProfileSuccessImpl>
+    implements _$$UpdateProfileSuccessImplCopyWith<$Res> {
+  __$$UpdateProfileSuccessImplCopyWithImpl(_$UpdateProfileSuccessImpl _value,
+      $Res Function(_$UpdateProfileSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? profileResponse = null,
+  }) {
+    return _then(_$UpdateProfileSuccessImpl(
+      null == profileResponse
+          ? _value.profileResponse
+          : profileResponse // ignore: cast_nullable_to_non_nullable
+              as ProfileResponse,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateProfileSuccessImpl implements UpdateProfileSuccess {
+  const _$UpdateProfileSuccessImpl(this.profileResponse);
+
+  @override
+  final ProfileResponse profileResponse;
+
+  @override
+  String toString() {
+    return 'ProfileState.updateProfileSuccess(profileResponse: $profileResponse)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateProfileSuccessImpl &&
+            (identical(other.profileResponse, profileResponse) ||
+                other.profileResponse == profileResponse));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, profileResponse);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateProfileSuccessImplCopyWith<_$UpdateProfileSuccessImpl>
+      get copyWith =>
+          __$$UpdateProfileSuccessImplCopyWithImpl<_$UpdateProfileSuccessImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() profileLoading,
+    required TResult Function(ProfileResponse profileResponse) profileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
+    required TResult Function() updateProfileLoading,
+    required TResult Function(ProfileResponse profileResponse)
+        updateProfileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
+    required TResult Function() imagePickedSuccess,
+  }) {
+    return updateProfileSuccess(profileResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? profileLoading,
+    TResult? Function(ProfileResponse profileResponse)? profileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult? Function()? updateProfileLoading,
+    TResult? Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult? Function()? imagePickedSuccess,
+  }) {
+    return updateProfileSuccess?.call(profileResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? profileLoading,
+    TResult Function(ProfileResponse profileResponse)? profileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult Function()? updateProfileLoading,
+    TResult Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult Function()? imagePickedSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateProfileSuccess != null) {
+      return updateProfileSuccess(profileResponse);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfileLoading value) profileLoading,
+    required TResult Function(ProfileSuccess value) profileSuccess,
+    required TResult Function(ProfileError value) profileError,
+    required TResult Function(UpdateProfileLoading value) updateProfileLoading,
+    required TResult Function(UpdateProfileSuccess value) updateProfileSuccess,
+    required TResult Function(UpdateProfileError value) updateProfileError,
+    required TResult Function(ImagePickedSuccess value) imagePickedSuccess,
+  }) {
+    return updateProfileSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfileLoading value)? profileLoading,
+    TResult? Function(ProfileSuccess value)? profileSuccess,
+    TResult? Function(ProfileError value)? profileError,
+    TResult? Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult? Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult? Function(UpdateProfileError value)? updateProfileError,
+    TResult? Function(ImagePickedSuccess value)? imagePickedSuccess,
+  }) {
+    return updateProfileSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfileLoading value)? profileLoading,
+    TResult Function(ProfileSuccess value)? profileSuccess,
+    TResult Function(ProfileError value)? profileError,
+    TResult Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult Function(UpdateProfileError value)? updateProfileError,
+    TResult Function(ImagePickedSuccess value)? imagePickedSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateProfileSuccess != null) {
+      return updateProfileSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfileSuccess implements ProfileState {
+  const factory UpdateProfileSuccess(final ProfileResponse profileResponse) =
+      _$UpdateProfileSuccessImpl;
+
+  ProfileResponse get profileResponse;
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateProfileSuccessImplCopyWith<_$UpdateProfileSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateProfileErrorImplCopyWith<$Res> {
+  factory _$$UpdateProfileErrorImplCopyWith(_$UpdateProfileErrorImpl value,
+          $Res Function(_$UpdateProfileErrorImpl) then) =
+      __$$UpdateProfileErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiErrorModel apiErrorModel});
+}
+
+/// @nodoc
+class __$$UpdateProfileErrorImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$UpdateProfileErrorImpl>
+    implements _$$UpdateProfileErrorImplCopyWith<$Res> {
+  __$$UpdateProfileErrorImplCopyWithImpl(_$UpdateProfileErrorImpl _value,
+      $Res Function(_$UpdateProfileErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? apiErrorModel = null,
+  }) {
+    return _then(_$UpdateProfileErrorImpl(
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateProfileErrorImpl implements UpdateProfileError {
+  const _$UpdateProfileErrorImpl(this.apiErrorModel);
+
+  @override
+  final ApiErrorModel apiErrorModel;
+
+  @override
+  String toString() {
+    return 'ProfileState.updateProfileError(apiErrorModel: $apiErrorModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateProfileErrorImpl &&
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateProfileErrorImplCopyWith<_$UpdateProfileErrorImpl> get copyWith =>
+      __$$UpdateProfileErrorImplCopyWithImpl<_$UpdateProfileErrorImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() profileLoading,
+    required TResult Function(ProfileResponse profileResponse) profileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
+    required TResult Function() updateProfileLoading,
+    required TResult Function(ProfileResponse profileResponse)
+        updateProfileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
+    required TResult Function() imagePickedSuccess,
+  }) {
+    return updateProfileError(apiErrorModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? profileLoading,
+    TResult? Function(ProfileResponse profileResponse)? profileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult? Function()? updateProfileLoading,
+    TResult? Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult? Function()? imagePickedSuccess,
+  }) {
+    return updateProfileError?.call(apiErrorModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? profileLoading,
+    TResult Function(ProfileResponse profileResponse)? profileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult Function()? updateProfileLoading,
+    TResult Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult Function()? imagePickedSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateProfileError != null) {
+      return updateProfileError(apiErrorModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfileLoading value) profileLoading,
+    required TResult Function(ProfileSuccess value) profileSuccess,
+    required TResult Function(ProfileError value) profileError,
+    required TResult Function(UpdateProfileLoading value) updateProfileLoading,
+    required TResult Function(UpdateProfileSuccess value) updateProfileSuccess,
+    required TResult Function(UpdateProfileError value) updateProfileError,
+    required TResult Function(ImagePickedSuccess value) imagePickedSuccess,
+  }) {
+    return updateProfileError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfileLoading value)? profileLoading,
+    TResult? Function(ProfileSuccess value)? profileSuccess,
+    TResult? Function(ProfileError value)? profileError,
+    TResult? Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult? Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult? Function(UpdateProfileError value)? updateProfileError,
+    TResult? Function(ImagePickedSuccess value)? imagePickedSuccess,
+  }) {
+    return updateProfileError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfileLoading value)? profileLoading,
+    TResult Function(ProfileSuccess value)? profileSuccess,
+    TResult Function(ProfileError value)? profileError,
+    TResult Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult Function(UpdateProfileError value)? updateProfileError,
+    TResult Function(ImagePickedSuccess value)? imagePickedSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateProfileError != null) {
+      return updateProfileError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfileError implements ProfileState {
+  const factory UpdateProfileError(final ApiErrorModel apiErrorModel) =
+      _$UpdateProfileErrorImpl;
+
+  ApiErrorModel get apiErrorModel;
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateProfileErrorImplCopyWith<_$UpdateProfileErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ImagePickedSuccessImplCopyWith<$Res> {
+  factory _$$ImagePickedSuccessImplCopyWith(_$ImagePickedSuccessImpl value,
+          $Res Function(_$ImagePickedSuccessImpl) then) =
+      __$$ImagePickedSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ImagePickedSuccessImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ImagePickedSuccessImpl>
+    implements _$$ImagePickedSuccessImplCopyWith<$Res> {
+  __$$ImagePickedSuccessImplCopyWithImpl(_$ImagePickedSuccessImpl _value,
+      $Res Function(_$ImagePickedSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ImagePickedSuccessImpl implements ImagePickedSuccess {
+  const _$ImagePickedSuccessImpl();
+
+  @override
+  String toString() {
+    return 'ProfileState.imagePickedSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ImagePickedSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() profileLoading,
+    required TResult Function(ProfileResponse profileResponse) profileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
+    required TResult Function() updateProfileLoading,
+    required TResult Function(ProfileResponse profileResponse)
+        updateProfileSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
+    required TResult Function() imagePickedSuccess,
+  }) {
+    return imagePickedSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? profileLoading,
+    TResult? Function(ProfileResponse profileResponse)? profileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult? Function()? updateProfileLoading,
+    TResult? Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult? Function()? imagePickedSuccess,
+  }) {
+    return imagePickedSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? profileLoading,
+    TResult Function(ProfileResponse profileResponse)? profileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
+    TResult Function()? updateProfileLoading,
+    TResult Function(ProfileResponse profileResponse)? updateProfileSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
+    TResult Function()? imagePickedSuccess,
+    required TResult orElse(),
+  }) {
+    if (imagePickedSuccess != null) {
+      return imagePickedSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ProfileLoading value) profileLoading,
+    required TResult Function(ProfileSuccess value) profileSuccess,
+    required TResult Function(ProfileError value) profileError,
+    required TResult Function(UpdateProfileLoading value) updateProfileLoading,
+    required TResult Function(UpdateProfileSuccess value) updateProfileSuccess,
+    required TResult Function(UpdateProfileError value) updateProfileError,
+    required TResult Function(ImagePickedSuccess value) imagePickedSuccess,
+  }) {
+    return imagePickedSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ProfileLoading value)? profileLoading,
+    TResult? Function(ProfileSuccess value)? profileSuccess,
+    TResult? Function(ProfileError value)? profileError,
+    TResult? Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult? Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult? Function(UpdateProfileError value)? updateProfileError,
+    TResult? Function(ImagePickedSuccess value)? imagePickedSuccess,
+  }) {
+    return imagePickedSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ProfileLoading value)? profileLoading,
+    TResult Function(ProfileSuccess value)? profileSuccess,
+    TResult Function(ProfileError value)? profileError,
+    TResult Function(UpdateProfileLoading value)? updateProfileLoading,
+    TResult Function(UpdateProfileSuccess value)? updateProfileSuccess,
+    TResult Function(UpdateProfileError value)? updateProfileError,
+    TResult Function(ImagePickedSuccess value)? imagePickedSuccess,
+    required TResult orElse(),
+  }) {
+    if (imagePickedSuccess != null) {
+      return imagePickedSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImagePickedSuccess implements ProfileState {
+  const factory ImagePickedSuccess() = _$ImagePickedSuccessImpl;
 }

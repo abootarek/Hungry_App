@@ -5,7 +5,6 @@ import 'package:hungry/core/theming/colors_app.dart';
 import 'package:hungry/featuers/home/logic/cubit/home_cubit.dart';
 import 'package:hungry/featuers/home/logic/cubit/home_state.dart';
 import 'package:hungry/featuers/home/ui/widgets/grid_view_custom.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 class GridViewCategoryCustom extends StatelessWidget {
   const GridViewCategoryCustom({super.key});

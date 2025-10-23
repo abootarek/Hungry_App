@@ -8,8 +8,8 @@ part of 'profile_response.dart';
 
 ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) =>
     ProfileResponse(
-      message: json['message'] as String,
-      code: (json['code'] as num).toInt(),
+      message: json['message'] as String?,
+      code: (json['code'] as num?)?.toInt(),
       data: json['data'] == null
           ? null
           : DataUser.fromJson(json['data'] as Map<String, dynamic>),

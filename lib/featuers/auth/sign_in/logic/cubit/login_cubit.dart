@@ -21,7 +21,6 @@ class LoginCubit extends Cubit<LoginState> {
   final passwordController = TextEditingController();
   final passwordConfirmController = TextEditingController();
 
-  /// تسجيل الدخول
   Future<void> emitLogin(BuildContext context) async {
     if (!formKey.currentState!.validate()) return;
 
@@ -50,16 +49,13 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-  /// ✅ حفظ بيانات المستخدم بعد تسجيل الدخول
   Future<void> _saveUserData(LoginResponse loginResponse) async {
     try {
-      // ✅ نحفظ التوكن بشكل آمن باستخدام SecureStorage
       await SharedPrefHelper.saveSecuredString(
         key: SharedPrefKeys.token,
         value: loginResponse.data.token ?? '',
       );
 
-      // 🧠 باقي البيانات نحفظها في SharedPreferences عادي
       await SharedPrefHelper.saveData(
         key: SharedPrefKeys.name,
         value: loginResponse.data.name,

@@ -7,7 +7,7 @@ class SharedPrefHelper {
   static late SharedPreferences sharedPreferences;
   static late FlutterSecureStorage flutterSecureStorage;
 
-  /// تهيئة الـ SharedPreferences و الـ SecureStorage
+  /// تهيئة SharedPreferences و SecureStorage
   static init() async {
     flutterSecureStorage = const FlutterSecureStorage();
     sharedPreferences = await SharedPreferences.getInstance();
@@ -80,15 +80,14 @@ class SharedPrefHelper {
     String? image,
   }) async {
     await saveData(key: SharedPrefKeys.isLoggedInUser, value: true);
-    await saveSecuredString(
-        key: SharedPrefKeys.token, value: token); // 👈 ضيف السطر ده
+    await saveSecuredString(key: SharedPrefKeys.token, value: token);
     await saveData(key: SharedPrefKeys.name, value: name);
     await saveData(key: SharedPrefKeys.email, value: email);
     if (phone != null) await saveData(key: SharedPrefKeys.phone, value: phone);
     if (image != null) await saveData(key: SharedPrefKeys.image, value: image);
   }
 
-  /// تسجيل خروج المستخدم (مسح الحالة)
+  /// تسجيل خروج المستخدم
   static Future<void> logout() async {
     await clearAllData();
     await clearAllSecuredData();

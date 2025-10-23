@@ -5,6 +5,7 @@ import 'package:hungry/core/networking/api_services.dart';
 import 'package:hungry/featuers/auth/profile/data/repo/profile_repo.dart';
 import 'package:hungry/featuers/auth/sign_in/data/repo/login_repo.dart';
 import 'package:hungry/featuers/auth/sign_up/data/repo/sign_up_repo.dart';
+import 'package:hungry/featuers/card/data/repo/card_repo.dart';
 import 'package:hungry/featuers/home/data/repo/home_repo.dart';
 
 final getIt = GetIt.instance;
@@ -19,4 +20,6 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
   // profile
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
+  // card Product
+  getIt.registerLazySingleton<CardRepo>(() => CardRepo(getIt()));
 }
